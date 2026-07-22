@@ -169,10 +169,15 @@ async function runStage1() {
   startButton.disabled = true;
   startButton.textContent = "Working...";
 
+  const previousIdeas = responseBoxes[1].value.trim();
+  const userPrompt = previousIdeas
+    ? `Give me 5 completely new topic ideas for grade 5 students. These should be simple, easy to understand, and different from these old ideas: ${previousIdeas}`
+    : "Give me 5 new topic ideas for grade 5 students. Make them simple, easy to understand, and fun.";
+
   const topicList = await callAgent(
     1,
-    "You are a creative brainstorming agent. Generate exactly 5 fresh, varied educational topics from different subjects, suitable for grade 8. Make them feel new and interesting, not repetitive. Output only five topic names, each on its own line, with no numbering or extra text.",
-    "Give me 5 new topics from different subjects."
+    "You are a creative brainstorming agent. Generate exactly 5 simple, kid-friendly educational topics that are appropriate for grade 5 students. Choose familiar and easy-to-understand ideas from everyday life, science, animals, history, or nature. Avoid complex, abstract, or advanced topics. Output only five topic names, each on its own line, with no numbering or extra text.",
+    userPrompt
   );
 
   if (!topicList) {
