@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Agent AI Workflow</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <h1>Multi-Agent AI Workflow</h1>
+        <p>Watch three AI agents collaborate in sequence to turn a topic into an essay review.</p>
+        <button id="startWorkflowBtn" class="start-button">Start Workflow</button>
+      </header>
+
+      <main class="workflow">
+        <section class="card" id="card1">
+          <div class="card-header">
+            <h2>Agent 1: Idea Generator</h2>
+            <span class="badge">Stage 1</span>
+          </div>
+          <label class="card-label" for="response1">Response</label>
+          <textarea id="response1" class="response-box" readonly placeholder="Waiting for Agent 1..."></textarea>
+          <div id="topicChoices" class="choice-list"></div>
+          <button id="rerunStage1Btn" class="proceed-button" hidden>Generate New Topic Options</button>
+          <p class="status" id="status1">Ready</p>
+        </section>
+
+        <section class="card" id="card2">
+          <div class="card-header">
+            <h2>Agent 2: 8th Grade Student</h2>
+            <span class="badge">Stage 2</span>
+          </div>
+          <label class="card-label" for="response2">Response</label>
+          <textarea id="response2" class="response-box" readonly placeholder="Waiting for Agent 2..."></textarea>
+          <button id="proceed2" class="proceed-button" hidden>Proceed to Agent 3</button>
+          <p class="status" id="status2">Waiting for Agent 1</p>
+        </section>
+
+        <section class="card" id="card3">
+          <div class="card-header">
+            <h2>Agent 3: English Teacher</h2>
+            <span class="badge">Stage 3</span>
+          </div>
+          <label class="card-label" for="response3">Response</label>
+          <textarea id="response3" class="response-box" readonly placeholder="Waiting for Agent 3..."></textarea>
+          <p class="status" id="status3">Waiting for Agent 2</p>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
